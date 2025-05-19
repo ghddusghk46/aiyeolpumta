@@ -14,33 +14,45 @@
 - pandas, joblib, gunicorn, whitenoise
 - GitHub 협업 (각자 브랜치 → PR 병합)
 
-## 실행 방법 
+## 처음 실행 방법 
 📦 1. Python 3.10.12 설치
 ⬇ CMD(명령 프롬프트)에 아래 명령어 복사해서 붙여넣기
-bash
+
 curl -o python-3.10.12-amd64.exe https://www.python.org/ftp/python/3.10.12/python-3.10.12-amd64.exe
+
 🔧 설치 시 주의사항
 설치창에서 반드시 ✅ "Add Python 3.10 to PATH" 체크
 
 그대로 "Install Now" 클릭
 
 📁 2. GitHub에서 프로젝트 클론
-bash
+
 git clone https://github.com/ghddusghk46/aiyeolpumta.git
+
 cd aiyeolpumta
+
 🛠️ 3. 가상환경 생성 및 실행
+
 python -m venv venv
+
 venv\Scripts\activate     # (Mac은 source venv/bin/activate)
+
 → 터미널에 (venv) 표시가 뜨면 성공
 
 📦 4. 필요한 라이브러리 설치
+
 pip install -r requirements.txt
+
 → Django, pandas, scikit-learn 등 자동 설치됨
 
 🚀 5. 서버 실행
+
 python manage.py runserver
+
 → 웹 브라우저에 아래 주소 입력:
+
 http://127.0.0.1:8000
+
 ✅ 확인사항
 항목	기대 결과
 python --version	→ Python 3.10.12
@@ -69,3 +81,17 @@ git add .
 git rebase --continue
 
 git push origin main
+
+# 나중에 실행할 떄
+venv\Scripts\activate # (venv) 표시가 앞에 뜨면 성공
+
+# mac이나 리눅스는 아래처럼 입력
+source venv\bin\activate
+
+python manage.py runserver
+
+venv\Scripts\activate
+
+python manage.py runserver
+
+# 이후 bash에서 뜨는 링크 컨트롤+클릭 후 서버 주소 뒤에 + / 자기 페이지 이름 추가해서 실행하세요
