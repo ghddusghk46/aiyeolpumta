@@ -49,14 +49,23 @@ python --version	→ Python 3.10.12
 
 ## 변경 사항 커밋 방법
 git pull origin main # github에서 최신 변경사항 받아오기
+
 내 작업 시작 (vscode 내에서 파일 변경 등)
+
 git add .
+
 git commit -m "변경한 내용 설명 예: 로그인 페이지 추가"
+
 git push origin main
 
 위에서 push 오류가 날 때
-git push origin main --rebase # 충돌 없으면 계쏙
+
+git push origin main --rebase # 충돌 없으면 계속
+
 git push origin main
+
 git add .
+
 git rebase --continue
+
 git push origin main
