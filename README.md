@@ -82,16 +82,18 @@ git rebase --continue
 
 git push origin main
 
-# 나중에 실행할 떄
+# 나중에 실행할 때
+
+
 venv\Scripts\activate # (venv) 표시가 앞에 뜨면 성공
 
 # mac이나 리눅스는 아래처럼 입력
-source venv\bin\activate
+cd ~/ai열품타
 
-python manage.py runserver
+source venv/bin/activate
 
-venv\Scripts\activate
+python3 manage.py runserver
 
-python manage.py runserver
+
 
 # 이후 bash에서 뜨는 링크 컨트롤+클릭 후 서버 주소 뒤에 + / 자기 페이지 이름 추가해서 실행하세요
