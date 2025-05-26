@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공부 타이머 - 메인 화면</title>
+    <style>
+      :root {
+        --bg-main: #def5e5;
+        --primary: #bcead5;
+        --secondary: #9ed5c5;
+        --accent: #8ec3b0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-main);
+        font-family: "Noto Sans KR", sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .timer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+        flex: 1;
+      }
+
+      .timer-circle-container {
+        width: 290px;
+        height: 290px;
+        border-radius: 50%;
+        background-color: var(--secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .timer-circle {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: #def5e5; /* 연한 ring */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        color: #222;
+        transition: background-color 0.3s ease;
+      }
+      .timer-circle:hover {
+        background-color: var(--primary);
+        cursor: pointer;
+      }
+
+      .quote {
+        margin-top: 40px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #222;
+      }
+
+      .daily-goal {
+        margin-top: 40px;
+        width: 80%;
+        background-color: var(--accent);
+        padding: 20px;
+        border-radius: 28px;
+        color: #000;
+      }
+
+      .daily-goal h3 {
+        margin: 0 0 16px 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .progress-bar {
+        background-color: #def5e5;
+        height: 28px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .progress-fill {
+        background-color: var(--secondary);
+        height: 100%;
+        width: 50%; /* 예시 진행률 */
+        transition: width 0.3s ease;
+      }
+
+      .goal-text {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .bottom-nav {
+        height: 60px;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .nav-item {
+        font-size: 13px;
+        color: #888;
+        text-align: center;
+      }
+
+      .nav-item.active {
+        color: #000;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="timer-container">
+      <div class="timer-circle-container">
+        <div class="timer-circle">25:00</div>
+      </div>
+
+      <div class="quote">대충 공부 명언</div>
+
+      <div class="daily-goal">
+        <h3>Daily Goal</h3>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="goal-text">1h 30m / 3h</div>
+      </div>
+    </main>
+
+    <!-- 하단 네비게이션 바 기틀 -->
+    <nav class="bottom-nav">
+      <div class="nav-item active">과목 생성</div>
+      <div class="nav-item">todolist</div>
+      <div class="nav-item">공부 현황</div>
+      <div class="nav-item">설정</div>
+    </nav>
+    <script>
+      const timerCircle = document.querySelector(".timer-circle");
+
+      timerCircle.addEventListener("mouseover", () => {
+        timerCircle.innerHTML = "공부 시작";
+      });
+      timerCircle.addEventListener("mouseout", () => {
+        timerCircle.innerHTML = "25:00";
+      });
+    </script>
+  </body>
+</html>
