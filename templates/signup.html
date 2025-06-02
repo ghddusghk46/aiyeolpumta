@@ -70,7 +70,10 @@
         margin-left: 10px;
         display: block;
       }
-      .input-field {
+      .id-field,
+      .username-field,
+      .password-field,
+      .re-password-field {
         width: 80%;
         padding: 10px 10px 10px 44px;
         border-radius: 22px;
@@ -82,7 +85,10 @@
         outline: none;
         transition: box-shadow 0.15s;
       }
-      .input-field:focus {
+      .id-field:focus,
+      .username-field:focus,
+      .password-field:focus,
+      .re-password-field:focus {
         box-shadow: 0 0 0 2px #94cec0;
         background-color: #fff;
       }
@@ -151,18 +157,13 @@
         <div class="input-group">
           <span class="input-label">ID or Username</span>
           <span class="material-symbols-outlined person">person</span>
-          <input
-            class="input-field"
-            type="text"
-            placeholder="아이디"
-            required
-          />
+          <input class="id-field" type="text" placeholder="아이디" required />
         </div>
         <div class="input-group">
           <span class="input-label">Password</span>
           <span class="material-symbols-outlined lock">lock</span>
           <input
-            class="input-field"
+            class="password-field"
             type="password"
             placeholder="비밀번호"
             required
@@ -172,7 +173,7 @@
           <span class="input-label">Password</span>
           <span class="material-symbols-outlined lock">lock</span>
           <input
-            class="input-field"
+            class="re-password-field"
             type="password"
             placeholder="비밀번호 확인"
             required
@@ -182,7 +183,7 @@
           <span class="input-label">Username</span>
           <span class="material-symbols-outlined person">person</span>
           <input
-            class="input-field"
+            class="username-field"
             type="text"
             placeholder="닉네임"
             required
