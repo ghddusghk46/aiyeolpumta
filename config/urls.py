@@ -21,8 +21,13 @@ from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+<<<<<<< Updated upstream
     path("subject/", views.subject, name="subject"),
     path("home/", views.home, name="home"),
     path("signin/", views.signin, name="signin"),
     path("signup/", views.signup, name="signup"),
+=======
+    path('subject/', views.subject, name='subject'),
+    path('studyend/', views.studyend, name='studyend')
+>>>>>>> Stashed changes
 ]

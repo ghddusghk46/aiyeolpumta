@@ -3,6 +3,7 @@ from core.models import Subject, Home, Signin, Signup
 
 
 def subject(request):
+<<<<<<< Updated upstream
     if request.method == "POST":
         name = request.POST.get("subject_name")
         if name:
@@ -43,3 +44,9 @@ def signup(request):
 
     signups = Signup.objects.all()
     return render(request, "signup.html", {"signups": signups})
+=======
+    return render(request, "subject.html")
+
+def studyend(request):
+    return render(request, "studyend.html")
+>>>>>>> Stashed changes
