@@ -59,28 +59,54 @@ python --version	→ Python 3.10.12
 가상환경 활성화됨	→ (venv) 표시됨
 접속 확인	→ 로컬서버에 Django 페이지 나옴
 
-## 변경 사항 커밋 방법
-git pull origin main # github에서 최신 변경사항 받아오기
+## 변경 사항 커밋 방법 (브랜치 만든 후 처음 기준)
+# [1] github에서 최신 변경사항 받아오기
+git pull origin main
 
-내 작업 시작 (vscode 내에서 파일 변경 등)
+# [2] 내 작업 시작 (vscode 내에서 파일 변경 등)
 
+# [3] 변경된 파일 git에 등록
 git add .
 
+# [4] 변경한 내용 설명과 함께 커밋
 git commit -m "변경한 내용 설명 예: 로그인 페이지 추가"
 
-git push origin main
+# [5] 내 브랜치에 푸시 (처음 push일 경우)
+git push --set-upstream origin feature/본인 이름 (지원: jiwon, 가영: gayeong)
 
-위에서 push 오류가 날 때
+# [6] 위에서 push 오류가 날 때
+git pull origin main --rebase  # main의 최신 커밋을 내 브랜치에 재정렬
 
-git push origin main --rebase # 충돌 없으면 계속
+# [7] 다시 푸시 시도
+git push origin feature/login
 
-git push origin main
-
+# [8] (rebase 중 충돌 수정 후) 다시 add
 git add .
 
+# [9] rebase 재개
 git rebase --continue
 
-git push origin main
+# [10] 최종 푸시
+git push origin feature/login
+
+
+## 이후에 커밋 방법 
+# 1. github에서 최신 main 내용 받아오기
+git pull origin main
+
+# 2. 작업 후
+git add .
+
+# 3. 커밋
+git commit -m "로그인 폼 레이아웃 수정"
+
+# 4. 푸시 (처음이 아니므로 짧게)
+git push
+
+
+## 브랜치 확인하기 (내가 지금 어떤 브랜치에 있는지)
+git branch -vv
+-> 출력 예시: feature/login ~!#@~!#~
 
 # 나중에 실행할 때
 
