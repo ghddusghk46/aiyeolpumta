@@ -1,46 +1,27 @@
-from django.shortcuts import render, redirect
-from core.models import Subject, Home, Signin, Signup
+from django.shortcuts import render
+from .models import StudyRecord
 
+def today_study_view(request):
+    record = StudyRecord.objects.last()
 
-def subject(request):
+    context = {
+        'study_time': "00:00:00",
+        'goal_percent': "0",
+        'feedback_list': [
+            "공부 기록이 아직 없습니다. 오늘부터 시작해볼까요?"
+        ]
+    }
 
-    if request.method == "POST":
-        name = request.POST.get("subject_name")
-        if name:
-            Subject.objects.create(name=name)
-        return redirect("subject")
+    if record:
+        hours = record.study_time // 3600
+        minutes = (record.study_time % 3600) // 60
+        seconds = record.study_time % 60
+        time_string = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
-    subjects = Subject.objects.all()
-    return render(request, "subject.html", {"subjects": subjects})
+        context = {
+            'study_time': time_string,
+            'goal_percent': record.goal_percent,
+            'feedback_list': record.feedback.split("\n")
+        }
 
-
-def home(request):
-    if request.method == "GET":
-        return render(request, "home.html")
-
-    homes = Home.objects.all()
-    return render(request, "home.html", {"homes": homes})
-
-
-def signin(request):
-    if request.method == "POST":
-        id = request.POST.get("id")
-        password = request.POST.get("password")
-        if id and password:
-            Signin.objects.create(id=id, password=password)
-        return redirect("signin")
-
-    signins = Signin.objects.all()
-    return render(request, "signin.html", {"signins": signins})
-
-
-def signup(request):
-    if request.method == "POST":
-        id = request.POST.get("id")
-        password = request.POST.get("password")
-        if id and password:
-            Signup.objects.create(id=id, password=password)
-        return redirect("signup")
-
-    signups = Signup.objects.all()
-    return render(request, "signup.html", {"signups": signups})
+    return render(request, 'study/today.html', context)
